@@ -8,23 +8,30 @@ close all;
 clc
 clear all;
 
-x = load('test_fft.txt');
+x = load('../zx-test-fft.txt');
 y = complex(x(:,1),x(:,2));
 
+% 使用输入信号为复数的FFT计算
 figure,
-subplot(2,1,1),plot(abs(y(1:128)));
+subplot(2,2,1),plot(abs(y(1:128)));
 title('FFT Result');
-subplot(2,1,3),plot(y(129:256));
+xlim([0,128]);
+subplot(2,2,3),plot(real(y(129:256)));
 title('IFFT Result');
-subplot(2,1,2),plot(abs(y(1:128)));
-title('FFT Result');
-subplot(2,1,4),plot(y(129:256));
-title('IFFT Result');
+axis([0,128,-1,1]);
+
+% 使用输入信号为实数的FFT计算
+subplot(2,2,2),plot(abs(y(257:384)));
+title('FFT Result with REAL SIGNAL');
+xlim([0,128]);
+subplot(2,2,4),plot(y(385:512));
+title('IFFT Result with REAL SIGNAL');
+axis([0,128,-1,1]);
 
 
-if exist('test_xcorr.txt', 'file')
+if exist('../zx-test-xcorr.txt', 'file')
     dy = 2048;
-    x = load('test_xcorr.txt');
+    x = load('../zx-test-xcorr.txt');
     y = complex(x(:,1),x(:,2));
     
     figure,

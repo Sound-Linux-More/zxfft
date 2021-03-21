@@ -1,19 +1,26 @@
+PROJECT = zx
+PROGFFT = $(PROJECT)-test-fft
+PROGXCORR = $(PROJECT)-test-xcorr
+PROGS = $(PROGFFT) $(PROGXCORR)
+SRCS = src
+SRC_FFT = $(SRCS)/main.c $(SRCS)/zx_fft.c $(SRCS)/zx_math.c
+SRC_XCORR = $(SRCS)/xcorr.c $(SRCS)/zx_fft.c $(SRCS)/zx_math.c
+CC = gcc
+CFLAGS = -Wall
+LDFLAGS = -lm -s
+RM = rm -f
 
-SRC_FFT = main.c zx_fft.c zx_math.c
-SRC_XCORR = xcorr.c zx_fft.c zx_math.c
+all: $(PROGS)
 
-all:test.fft test.xcorr
+$(PROGFFT): $(SRC_FFT)
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
-test.fft:$(SRC_FFT)
-	gcc $^ -o $@
+$(PROGXCORR): $(SRC_XCORR)
+	$(CC) $(CFLAGS)  $^ -o $@ $(LDFLAGS)
 
-test.xcorr:$(SRC_XCORR)
-	gcc $^ -o $@
-
-.PHONY:clean run
+.PHONY: clean run
 run:
-	-./test.fft > test_fft.txt
-	-./test.xcorr > test_xcorr.txt
+	./$(PROGFFT) > $(PROGFFT).txt
+	./$(PROGXCORR) > $(PROGXCORR).txt
 clean:
-	-rm -f test.fft test_fft.txt test_xcorr.txt
-
+	$(RM) $(PROGFFT) $(PROGXCORR) $(PROGFFT).txt $(PROGXCORR).txt

@@ -8,7 +8,7 @@
 #ifndef _ZX_FFT_H
 #define _ZX_FFT_H
 
-#include "Config.h"
+#include "config.h"
 
 #define TYPE_FFT_E     float    /* Type is the same with COMPLEX member */     
 

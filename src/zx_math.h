@@ -12,7 +12,7 @@
   extern "C" {
 #endif
 
-#include "Config.h"
+#include "config.h"
 
 /* typedefs */
 typedef float TYPE_SCALE;

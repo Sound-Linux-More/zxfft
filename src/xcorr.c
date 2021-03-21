@@ -8,7 +8,7 @@
  * Copyright (C) MICL,USTB
  */
 
-#include "Config.h"
+#include "config.h"
 #include "zx_fft.h"
 #include "zx_math.h"
 #include <stdio.h>

@@ -6,13 +6,13 @@ improve the performance from O(N^2) to O(n*log(n))
 
 Fllow steps to use this projects:
 
-1. make
-2. make run
-3. open matlab and run plot_result.m
+1. `make`
+2. `make run`
+3. open matlab and run `m/zx_plot_result.m`
 
-![FFT-标准正弦信号](./FFT-标准正弦信号.png)
-![FFT-含噪声信号](./FFT-含噪声信号.png)
-![FFT-互相关时延计算](./FFT-互相关时延计算.png)
+![FFT-cross-correlation time delay calculation](images/fft-delay.png)
+![FFT-Noisy signal](images/fft-noisy.png)
+![FFT-standard sine signal](images/fft-sine.png)
 
 ### UPDATES
 
